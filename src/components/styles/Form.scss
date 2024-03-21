@@ -1,0 +1,51 @@
+@import "varible";
+@import "mixin";
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body{
+    @include flexible(flex,center,center);
+    height: 100vh
+}
+
+#form-valid{
+    @include styles($white,$primaryColor);
+    @include Dimensions(300px,300px);
+    @include flexible(flex,center,center);
+    flex-direction: column;
+    padding: 25px;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    .input-container{
+        @include flexible(flex,center,center);
+        @include Dimensions(100%,100%);
+        flex-direction: column;
+        input{
+            @include styles($inputColor,$primaryColor);
+            @include Dimensions(290px,45px);
+            margin-bottom: 10px;
+            border-radius: 6px;
+            border: none;
+            padding:0px 6px;
+            font-size: 17px;
+            outline: none;
+        }
+        #submit{
+            @include Dimensions(100%,45px);
+            @include styles($primaryColor,$white);
+            padding: 4px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 16px;
+            margin-bottom: 0;
+            cursor: pointer;
+            &:active{
+                @include styles($primaryColorBlur,$white);
+            }
+        }
+    }
+}

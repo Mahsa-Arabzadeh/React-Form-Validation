@@ -19,8 +19,8 @@ export default class Form extends Component {
             submited: false,
             silverBox:  silverBox({
               position: "top-right",
-              alertIcon: "info",
-              text: "changes has been saved!",
+              alertIcon: "success",
+              text: "Your Data has been saved!",
               centerContent: true,
               showCloseButton: true
        })

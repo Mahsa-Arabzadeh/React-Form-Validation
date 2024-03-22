@@ -21,7 +21,7 @@ body{
     border-radius: 6px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     .input-container{
-        @include flexible(flex,center,center);
+        @include flexible(flex,center,flex-start);
         @include Dimensions(100%,100%);
         flex-direction: column;
         input{
@@ -46,6 +46,10 @@ body{
             &:active{
                 @include styles($primaryColorBlur,$white);
             }
+        }
+        #error-handler{
+            @include styles("",$dangerColor);
+            margin: 10px 0px;
         }
     }
 }

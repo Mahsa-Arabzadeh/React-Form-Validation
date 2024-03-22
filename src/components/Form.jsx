@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import "./styles/Form.css"
-
+import silverBox from '../library/silverBox.min'
 export default class Form extends Component {
 
     constructor(props) {
@@ -15,8 +15,15 @@ export default class Form extends Component {
             firstNameData: "",
             lastNameData: "",
             emailData: "",
-            allValid: true,
-            submited: false
+            allValid: false,
+            submited: false,
+            silverBox:  silverBox({
+              position: "top-right",
+              alertIcon: "info",
+              text: "changes has been saved!",
+              centerContent: true,
+              showCloseButton: true
+            })
         }
     }
 
@@ -45,6 +52,7 @@ export default class Form extends Component {
       })
     }
 
+    
 
   render() {
     return (

@@ -23,7 +23,7 @@ export default class Form extends Component {
               text: "changes has been saved!",
               centerContent: true,
               showCloseButton: true
-            })
+       })
         }
     }
 
@@ -52,11 +52,13 @@ export default class Form extends Component {
       })
     }
 
-    
 
   render() {
     return (
       <div>
+        {this.state.submited && this.state.allValid &&
+        <div className="success-alert" >{this.state.silverBox}</div>
+        }
         <form action="" id='form-valid' onSubmit={this.submitForm} autoComplete='off'>
         <div className="input-container">
           <input id='first-name' type="text" placeholder='First Name' value={this.state.firstNameData} onChange={this.firstNameFunc} />

@@ -1,14 +1,12 @@
 import silverBox from "../library/silverBox.min";
 
-let alertBox;
+let alertBox = false;
 
-const alert = false;
-
-if (alert) {
+if (alertBox) {
   alertBox = silverBox({
     position: "top-right",
-    alertIcon: "info",
-    text: "changes has been saved!",
+    alertIcon: "success",
+    text: "Your data has been saved!",
     centerContent: true,
     showCloseButton: true,
   });

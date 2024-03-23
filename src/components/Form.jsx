@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import "./styles/Form.css"
-import silverBox from '../library/silverBox.min'
+import alertBox from './library'
+
 export default class Form extends Component {
 
     constructor(props) {
@@ -17,13 +18,6 @@ export default class Form extends Component {
             emailData: "",
             allValid: false,
             submited: false,
-            silverBox:  silverBox({
-              position: "top-right",
-              alertIcon: "success",
-              text: "Your Data has been saved!",
-              centerContent: true,
-              showCloseButton: true
-       })
         }
     }
 
@@ -50,15 +44,23 @@ export default class Form extends Component {
       this.setState({
         submited: true
       })
-    }
+      if(this.state.firstNameData.length !== 0 && this.state.lastNameData.length !== 0 && this.state.emailData.length !== 0){
+        this.setState({
+          allValid: true
 
+        })
+      }
+
+      setTimeout(() => {
+        this.setState({
+          allValid: false
+        })
+      }, 3000);
+    }
 
   render() {
     return (
       <div>
-        {this.state.submited && this.state.allValid &&
-        <div className="success-alert" >{this.state.silverBox}</div>
-        }
         <form action="" id='form-valid' onSubmit={this.submitForm} autoComplete='off'>
         <div className="input-container">
           <input id='first-name' type="text" placeholder='First Name' value={this.state.firstNameData} onChange={this.firstNameFunc} />

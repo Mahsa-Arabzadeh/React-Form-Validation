@@ -47,7 +47,6 @@ export default class Form extends Component {
       if(this.state.firstNameData.length !== 0 && this.state.lastNameData.length !== 0 && this.state.emailData.length !== 0){
         this.setState({
           allValid: true
-
         })
       }
 

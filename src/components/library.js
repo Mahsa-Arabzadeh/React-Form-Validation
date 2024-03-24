@@ -1,6 +1,6 @@
 import silverBox from "../library/silverBox.min";
 
-let alertBox = false;
+let alertBox = true;
 
 if (alertBox) {
   alertBox = silverBox({

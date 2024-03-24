@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import "./styles/Form.css"
-import alertBox from './library'
+import silverBox from '../library/silverBox.min'
+// import alertBox from './library'
 
 export default class Form extends Component {
 
@@ -41,22 +42,39 @@ export default class Form extends Component {
 
     submitForm(e){
       e.preventDefault()
+
       this.setState({
         submited: true
       })
+
       if(this.state.firstNameData.length !== 0 && this.state.lastNameData.length !== 0 && this.state.emailData.length !== 0){
+
         this.setState({
-          allValid: true
+          allValid: true,
         })
+
+        let alertBox = true;
+        if (alertBox) {
+        alertBox = silverBox({
+          position: "top-center",
+          alertIcon: "success",
+          text: "Your data has been saved!",
+          centerContent: true,
+          showCloseButton: true,
+        });
+      } else {
+        // Disable alertBox
+        alertBox = null;
+      }
+
       }
 
       setTimeout(() => {
         this.setState({
-          allValid: false
+          allValid: false,
         })
       }, 3000);
     }
-
 
 
   render() {
@@ -76,7 +94,7 @@ export default class Form extends Component {
           {this.state.submited && this.state.emailData.length === 0 &&          
                   <span id='error-handler'>Please enter an email address</span>
           }
-          <input type="submit" id='submit'/>
+          <input type="submit" id='submit' onClick={this.submitForm}/>
         </div>
       </form>
       </div>

@@ -1,6 +1,5 @@
 import { Component } from 'react'
 import "./styles/Form.css"
-// import alertBox from './library'
 
 export default class Form extends Component {
 
